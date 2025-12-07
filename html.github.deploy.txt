@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Strategic Portfolio – Lucas Holmes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Strategic analysis and national security portfolio for Lucas Holmes, featuring work on U.S. grand strategy, Western Hemisphere security, humanitarian finance, and wargaming." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #12172a;
+      --card: #171c32;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.15);
+      --text: #f5f5f7;
+      --muted: #a0a4b8;
+      --border: #22263d;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151a33 0, #050713 55%, #020309 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .hero-main {
+      max-width: 640px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 2.6vw + 1.4rem, 3rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+    }
+    .subtitle {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+    .hero-text {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .hero-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .hero-meta strong {
+      color: var(--text);
+    }
+    .tagline {
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(13, 110, 253, 0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin: 2rem 0 0.75rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+    .section {
+      margin-top: 1.5rem;
+    }
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 880px) {
+      .grid.grid-2 {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+    .card {
+      background: linear-gradient(135deg, var(--card), #0f1326);
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .card-body {
+      font-size: 0.9rem;
+      color: #d6d7e5;
+    }
+    .card-body ul {
+      margin-left: 1.1rem;
+      margin-top: 0.35rem;
+    }
+    .card-body li {
+      margin-bottom: 0.2rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 800px) {
+      .two-col {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 2.75rem;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .footer-links {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="hero-main">
+        <div class="subtitle">Strategic Analysis & National Security Portfolio</div>
+        <h1>Lucas Holmes</h1>
+        <p class="hero-text">
+          Independent strategist working at the intersection of national security, humanitarian finance,
+          and energy geoeconomics. This page curates collaborative work developed with advanced AI tools
+          (ChatGPT, GPT-5.1 Thinking) across long-form research, scenario design, and strategic planning.
+        </p>
+        <div class="tagline">
+          <span class="pill-dot"></span>
+          <span>Focus: Western Hemisphere security, PRC strategy, humanitarian aid integrity, and wargaming.</span>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Location:</strong> Houston, Texas (U.S.)</div>
+        <div><strong>Formats:</strong> Written analysis • Scenario design • Maps & threat matrices • Teaching material</div>
+        <div><strong>Contact:</strong> <span style="color:var(--accent)">[email / LinkedIn URL here]</span></div>
+      </div>
+    </header>
+
+    <!-- FEATURED STRATEGIC PROJECTS -->
+    <section class="section">
+      <h2>Featured Strategic Work</h2>
+      <p class="section-intro">
+        These projects were developed through extended analytical sessions inside ChatGPT, treating the model as a
+        research assistant and red-team partner. Full working notes and exports are available on request.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Western Hemisphere–First U.S. Grand Strategy</div>
+            <span class="badge">Grand Strategy</span>
+          </div>
+          <div class="card-meta">2025 &middot; National strategy design, Trump 2025 NSS context</div>
+          <div class="card-body">
+            <p>
+              Developed a Western Hemisphere–centric grand strategy concept, treating Latin America and the Caribbean
+              as the decisive theater for long-run U.S. security and economic resilience while reframing China as a
+              global balance-of-power challenge rather than a single-theater crusade.
+            </p>
+            <ul>
+              <li>Mapped strategic objectives, centers of gravity, and key vulnerabilities across the hemisphere.</li>
+              <li>Contrasted proposed approach with official U.S. National Security Strategy documents (post-1945 to present).</li>
+              <li>Outlined complementary roles for diplomacy, development finance, and hard power in the region.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">Western Hemisphere</span>
+              <span class="chip">Monroe Doctrine 2.0</span>
+              <span class="chip">Strategy comparison</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">PLA Strategic Nodes & Multi-Front Pressure Mapping</div>
+            <span class="badge">Geo-strategy</span>
+          </div>
+          <div class="card-meta">2025 &middot; China, Indo-Pacific, and global chokepoints</div>
+          <div class="card-body">
+            <p>
+              Constructed an annotated map-set and narrative describing key PLA and PRC-linked nodes, including shipyards,
+              energy hubs, overseas bases, and maritime chokepoints, with special attention to geographic constraints and
+              alliance structures.
+            </p>
+            <ul>
+              <li>Identified top “must defend” and “must disrupt” nodes from both U.S. and PRC perspectives.</li>
+              <li>Integrated Suez closure scenarios, Malacca chokepoint risk, and vulnerable logistics chains.</li>
+              <li>Generated concise threat lists suitable for briefing slides and wargaming set-ups.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">PLA posture</span>
+              <span class="chip">Chokepoints</span>
+              <span class="chip">Threat mapping</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Humanitarian Aid Integrity: Puerto Rico & Hurricane Maria</div>
+            <span class="badge">Humanitarian Finance</span>
+          </div>
+          <div class="card-meta">2024–2025 &middot; Puerto Rico case, USAID / FEMA, church networks</div>
+          <div class="card-body">
+            <p>
+              Led a deep dive into the financial flows surrounding Hurricane Maria relief, focusing on the gap between
+              obligated and disbursed funds and the mechanisms by which aid leaks before reaching affected communities.
+            </p>
+            <ul>
+              <li>Traced U.S. federal and philanthropic funding streams into Puerto Rico post-Maria.</li>
+              <li>Identified bureaucratic choke points (<em>“cash leg”</em>) and vulnerability to corruption.</li>
+              <li>Explored how embedded church networks affect speed, efficiency, and accountability of aid.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">Aid transparency</span>
+              <span class="chip">Puerto Rico</span>
+              <span class="chip">Faith–based implementation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">Scenario: Sub-Saharan Africa 2050 & Global Manufacturing</div>
+            <span class="badge">Futures / Geo-economics</span>
+          </div>
+          <div class="card-meta">2025 &middot; Long-range scenario & specialization paths</div>
+          <div class="card-body">
+            <p>
+              Constructed a multi-path scenario for Sub-Saharan Africa through 2050, examining whether and how the
+              region can move from extraction to higher-value manufacturing and services in a multipolar world.
+            </p>
+            <ul>
+              <li>Assessed plausible regional specializations (energy, logistics, critical minerals, agri-tech).</li>
+              <li>Integrated World Bank / DFI roles, external powers (U.S., EU, China, Gulf States), and security dynamics.</li>
+              <li>Outlined conditions for a “United African States”–style bloc vs. fragmented regional coalitions.</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">Africa 2050</span>
+              <span class="chip">Industrial policy</span>
+              <span class="chip">Multi-polar order</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WARGAMING & METHODOLOGY -->
+    <section class="section">
+      <h2>Wargaming, Threat Taxonomies & Methodology</h2>
+      <div class="two-col">
+        <div>
+          <p class="section-intro">
+            Beyond single papers, a recurring theme has been building structures: taxonomies, matrices, and repeatable
+            analytic patterns that can be reused for additional theaters or questions.
+          </p>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Threat Hierarchies & Flashpoint Typology</div>
+              <span class="badge">Framework</span>
+            </div>
+            <div class="card-meta">Symmetrical vs. asymmetrical warfare, 2024–2025</div>
+            <div class="card-body">
+              <p>
+                Designed a concise framework to categorize U.S. national security threats by type of warfare and
+                escalation risk:
+              </p>
+              <ul>
+                <li>Internal CCP political dynamics vs. external coalition threats.</li>
+                <li>Neighbors’ fear-driven balancing vs. U.S.–China strategic competition.</li>
+                <li>AI and cyber as either force-multipliers or destabilizing wildcards.</li>
+              </ul>
+              <p>
+                The typology is formatted for direct use in briefing decks and tabletop exercises.
+              </p>
+              <div class="chips">
+                <span class="chip">Flashpoints</span>
+                <span class="chip">Taxonomy</span>
+                <span class="chip">Briefing-ready</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Wargame Seeds & Red-Team Prompts</div>
+              <span class="badge">Wargaming</span>
+            </div>
+            <div class="card-body">
+              <p>
+                Generated “seed” scenarios suitable for structured wargames and seminar-style exercises, including:
+              </p>
+              <ul>
+                <li>Multi-front pressure on China via maritime chokepoints and diplomatic isolation.</li>
+                <li>Western Hemisphere crisis cells (Caribbean, Central America, energy corridors).</li>
+                <li>AI-driven ISR disruption and contested logistics in a degraded satellite environment.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Pedagogical Design for Strategy Education</div>
+              <span class="badge">Teaching</span>
+            </div>
+            <div class="card-body">
+              <p>
+                Built curricula and classroom-ready materials that translate complex strategy questions into teachable
+                units for advanced high-school and undergraduate students (e.g., national strategy comparison,
+                aid-integrity case studies, rhetorical analysis of official documents).
+              </p>
+              <div class="chips">
+                <span class="chip">Curriculum design</span>
+                <span class="chip">National strategies</span>
+                <span class="chip">Case method</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THIS WORK WAS DONE -->
+    <section class="section">
+      <h2>How This Work Was Produced</h2>
+      <p class="section-intro">
+        All of the above projects were developed through extended conversations inside ChatGPT, using the model as a
+        mixed-role assistant: researcher, opponent, and editor. The workflow typically looked like this:
+      </p>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">1. Framing & Hypothesis</div>
+            <span class="badge">Phase</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Define the core strategic question in plain language.</li>
+              <li>State an initial hypothesis or intuition to test.</li>
+              <li>Set constraints: time horizon, geography, actors, and acceptable assumptions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">2. Structured Decomposition</div>
+            <span class="badge">Phase</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Break the problem into sub-modules (finance, military, political, informational).</li>
+              <li>Build taxonomies and matrices instead of linear essays.</li>
+              <li>Cross-walk findings against historical analogues where possible.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">3. Red-Teaming & Stress-Testing</div>
+            <span class="badge">Phase</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Ask the model to argue the opposite case or identify failure modes.</li>
+              <li>Introduce shocks (e.g., canal closures, commodity spikes, alliance breakdowns).</li>
+              <li>Revise the framework until it survives plausible adversarial scenarios.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">4. Packaging & Teaching</div>
+            <span class="badge">Phase</span>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Convert raw notes into concise briefs, slides, or teaching units.</li>
+              <li>Highlight decision-relevant insights rather than encyclopedic detail.</li>
+              <li>Design prompts for students, policymakers, or analysts to engage the material.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div>Interested in seeing the underlying working documents or chat transcripts?</div>
+      <div class="footer-links">
+        <span>Contact: <a href="#">[your email]</a></span>
+        <span>LinkedIn: <a href="#">[your LinkedIn]</a></span>
+        <span>GitHub / Notion: <a href="#">[link to full archive]</a></span>
+      </div>
+      <div style="margin-top:0.5rem;">
+        This portfolio summarizes work produced in collaboration with advanced AI systems (ChatGPT, GPT-5.1 Thinking)
+        and reflects an iterative, evidence-constrained approach to modern strategy problems.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
